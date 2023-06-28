@@ -10,7 +10,7 @@ const KartuDetail = ({ kartuData }) => {
       <img src={bg} alt="" className="object-cover w-full h-screen absolute" />
       <div className="flex justify-center items-center h-screen relative">
         {kartu ? (
-          <div className=" absolute w-5/12 md:w-3/12 mx-auto overflow-hidden shadow-md bg-white rounded-lg border">
+          <div className=" absolute w-10/12 md:w-3/12 mx-auto overflow-hidden shadow-md bg-white rounded-lg border">
             <div className="relative">
               <img
                 className="w-full h-52  object-cover "

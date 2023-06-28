@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { bg } from '../assets';
+import confetti from 'canvas-confetti';
 
 const KartuDetail = ({ kartuData }) => {
   const { key } = useParams();
@@ -9,6 +10,11 @@ const KartuDetail = ({ kartuData }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCardClick = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
     setIsOpen(!isOpen);
   };
 

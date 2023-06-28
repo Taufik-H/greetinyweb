@@ -21,7 +21,6 @@ const App = () => {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<DaftarKartu kartuData={kartuData} />} />
           <Route
             path="/kartu/:key"
             element={<KartuDetail kartuData={kartuData} />}

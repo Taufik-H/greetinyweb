@@ -22,10 +22,14 @@ const KartuDetail = ({ kartuData }) => {
         <motion.div
           whileTap={{ scale: 0.8 }}
           onClick={handleCardClick}
-          className={`w-10/12 h-[400px] card-surprise rounded-md shadow-md bg-white overflow-hidden`}
+          className={`w-10/12 h-[400px] card-surprise  rounded-md shadow-md bg-white overflow-hidden`}
         >
-          <div className="w-full h-full">
-            <img src={bg} alt="" className="object-cover w-full h-full" />
+          <div className="relative w-full h-full rounded-md">
+            <img
+              src={bg}
+              alt=""
+              className="absolute object-cover w-full h-full bg-blue-500"
+            />
           </div>
         </motion.div>
         {kartu && (
@@ -47,7 +51,15 @@ const KartuDetail = ({ kartuData }) => {
             </div>
             <div className="p-3">
               <div className="flex justify-between items-center">
-                <p className="text-2xl uppercase font-bold">{kartu.subject}</p>
+                <div className="flex gap-3">
+                  <p className="text-2xl uppercase font-bold">
+                    {kartu.subject}
+                  </p>
+                  <p className="text-2xl uppercase font-bold">
+                    {kartu.subjectA ? `& ${kartu.subjectA}` : ''}
+                  </p>
+                </div>
+
                 <p className="px-1 py-1 bg-orange-100 border border-orange-500 animate-pulse text-orange-500 rounded-full text-xs w-[90px] flex justify-center">
                   {kartu.type}
                 </p>

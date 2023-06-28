@@ -1,1 +1,1 @@
-export { default as bg } from './bg.webp';
+export { default as bg } from './bg.svg';

@@ -4,22 +4,6 @@ import { fetchKartuData } from './api';
 import KartuDetail from './components/KartuDetail';
 import './index.css';
 
-const DaftarKartu = ({ kartuData }) => {
-  return (
-    <div>
-      <h1>Daftar Kartu</h1>
-      <ul>
-        {kartuData &&
-          Object.keys(kartuData).map((key) => (
-            <li key={key}>
-              <Link to={`/kartu/${key}`}>{key}</Link>
-            </li>
-          ))}
-      </ul>
-    </div>
-  );
-};
-
 const App = () => {
   const [kartuData, setKartuData] = useState(null);
 

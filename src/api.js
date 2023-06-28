@@ -4,14 +4,14 @@ import { getAnalytics } from 'firebase/analytics';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCr9UfDAuWrrSBH_sboDvag8LkxAgZ8O6c',
-  authDomain: 'luminousgreetiny.firebaseapp.com',
-  databaseURL: 'https://luminousgreetiny-default-rtdb.firebaseio.com',
-  projectId: 'luminousgreetiny',
-  storageBucket: 'luminousgreetiny.appspot.com',
-  messagingSenderId: '843000764630',
-  appId: '1:843000764630:web:f00829c77f02b3e60bd177',
-  measurementId: 'G-MEZ80RHYX2',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

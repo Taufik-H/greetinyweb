@@ -4,14 +4,14 @@ import { getAnalytics } from 'firebase/analytics';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
+  apiKey: 'AIzaSyCr9UfDAuWrrSBH_sboDvag8LkxAgZ8O6c',
+  authDomain: 'luminousgreetiny.firebaseapp.com',
+  databaseURL: 'https://luminousgreetiny-default-rtdb.firebaseio.com',
+  projectId: 'luminousgreetiny',
+  storageBucket: 'luminousgreetiny.appspot.com',
+  messagingSenderId: '843000764630',
+  appId: '1:843000764630:web:f00829c77f02b3e60bd177',
+  measurementId: 'G-MEZ80RHYX2',
 };
 
 const app = initializeApp(firebaseConfig);

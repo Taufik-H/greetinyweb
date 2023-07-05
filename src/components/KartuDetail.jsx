@@ -22,17 +22,17 @@ const KartuDetail = ({ kartuData }) => {
     kartu && kartu.type === 'Ulang tahun'
       ? 'bg-blue-500'
       : kartu && kartu.type === 'Valentine'
-      ? 'bg-pink-400'
-      : '' || (kartu && kartu.type === 'Pernikahan')
+      ? 'bg-rose-400'
+      : kartu && kartu.type === 'Pernikahan'
       ? 'bg-yellow-400'
-      : '' || (kartu && kartu.type === 'Hari Raya')
+      : kartu && kartu.type === 'Hari Raya'
       ? 'bg-green-400'
-      : '' || (kartu && kartu.type === 'Kelulusan')
+      : kartu && kartu.type === 'Kelulusan'
       ? 'bg-green-400'
-      : '' || (kartu && kartu.type === 'Tahun Baru')
+      : kartu && kartu.type === 'Tahun Baru'
       ? 'bg-orange-400'
       : '';
-
+  console.log(kartu.type);
   return (
     <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300">
       {/* Card Cover */}
@@ -43,6 +43,7 @@ const KartuDetail = ({ kartuData }) => {
         animate={{ x: isOpen ? '-100%' : 0 }}
         transition={{ duration: 0.5, type: 'spring' }}
       >
+        {console.log(cardCoverColor)}
         <div
           className="relative w-full h-full rounded-md"
           style={{ minHeight: '500px' }}

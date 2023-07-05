@@ -18,73 +18,72 @@ const KartuDetail = ({ kartuData }) => {
     setIsOpen(!isOpen);
   };
 
+  const cardCoverColor =
+    kartu && kartu.type === 'Ulang tahun'
+      ? 'bg-blue-500'
+      : kartu && kartu.type === 'Valentine'
+      ? 'bg-pink-400'
+      : '' || (kartu && kartu.type === 'Pernikahan')
+      ? 'bg-yellow-400'
+      : '' || (kartu && kartu.type === 'Hari Raya')
+      ? 'bg-green-400'
+      : '' || (kartu && kartu.type === 'Kelulusan')
+      ? 'bg-green-400'
+      : '' || (kartu && kartu.type === 'Tahun Baru')
+      ? 'bg-orange-400'
+      : '';
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300">
-        <motion.div
-          whileTap={{ scale: 0.8 }}
-          onClick={handleCardClick}
-          className={`w-10/12 h-[400px] card-surprise  rounded-md shadow-md bg-white overflow-hidden`}
+    <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300">
+      {/* Card Cover */}
+      <motion.div
+        onClick={handleCardClick}
+        className={`w-10/12 md:w-3/12 h-[500px] card-surprise rounded-md shadow-md bg-white overflow-hidden z-50 ${cardCoverColor}`}
+        initial={{ x: 0 }}
+        animate={{ x: isOpen ? '-100%' : 0 }}
+        transition={{ duration: 0.5, type: 'spring' }}
+      >
+        <div
+          className="relative w-full h-full rounded-md"
+          style={{ minHeight: '500px' }}
         >
-          <div className="relative w-full h-full rounded-md">
-            <img
-              src={bg}
-              alt=""
-              className="absolute object-cover w-full h-full bg-blue-500"
-            />
-          </div>
-        </motion.div>
-        {kartu && (
-          <motion.div
-            onClick={handleCardClick}
-            className={`absolute w-11/12 md:w-3/12 mx-auto overflow-hidden shadow-md bg-white rounded-lg border ${
-              isOpen ? 'block' : 'hidden'
-            }`}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: isOpen ? 1 : 0, opacity: isOpen ? 1 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="relative">
-              <img
-                className="w-full h-52 object-cover"
-                src={kartu.gambar}
-                alt={kartu.subject}
-              />
-            </div>
-            <div className="p-3">
-              <div className="flex justify-between items-center">
-                <div className="flex gap-3">
-                  <p className="text-2xl uppercase font-bold">
-                    {kartu.subject}
-                  </p>
-                  <p className="text-2xl uppercase font-bold">
-                    {kartu.subjectA ? `& ${kartu.subjectA}` : ''}
-                  </p>
-                </div>
+          <img
+            src={bg}
+            alt=""
+            className="absolute object-cover w-full h-full"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+      </motion.div>
 
-                <p className="px-1 py-1 bg-orange-100 border border-orange-500 animate-pulse text-orange-500 rounded-full text-xs w-[90px] flex justify-center">
-                  {kartu.type}
-                </p>
+      {/* Card Detail */}
+      {kartu && (
+        <div
+          onClick={handleCardClick}
+          style={{
+            backgroundImage: `url(${kartu.gambar})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+          className={`absolute w-10/12 md:w-3/12 h-[500px] mx-auto overflow-hidden shadow-md bg-white rounded-lg border`}
+        >
+          {/* Card Content */}
+          <div className="w-full h-full px-3">
+            <div className="relative mb-[320px]">
+              <div className="absolute w-full bg-white p-3 rounded-lg">
+                <h1>{kartu.subject}</h1>
+                <h1>{kartu.subjectA ? `& ${kartu.subjectA}` : ''}</h1>
+                <p>{kartu.type}</p>
+                <p>{kartu.tanggal}</p>
+                <p>{kartu.ucapan}</p>
+                <p>{kartu.username}</p>
               </div>
-              <p className="text-xs uppercase font-bold text-slate-500 mt-5">
-                {kartu.tanggal}
-              </p>
-              <p className="flex justify-center items-center w-full bg-slate-50 border-slate-200 border h-20 rounded-md mt-3 p-3">
-                "{kartu.ucapan}"
-              </p>
-
-              <p className="text-xs mt-2 italic uppercase text-slate-500">
-                Pengirim: {kartu.username}
-              </p>
             </div>
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
+          </div>
+          {/* end of Card Content */}
+        </div>
+      )}
+    </div>
   );
 };
 

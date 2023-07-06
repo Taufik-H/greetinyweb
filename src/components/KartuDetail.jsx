@@ -66,7 +66,7 @@ const KartuDetail = ({ kartuData }) => {
       {kartu && (
         <motion.div
           onClick={handleCardContentClick}
-          transition={{ duration: 0.5, type: 'spring' }}
+          transition={{ duration: 1, type: 'spring' }}
           animate={{ x: isOpen ? '3%' : 0, rotate: isOpen ? -7 : 0 }}
           style={{
             backgroundImage: `url(${kartu.gambar})`,

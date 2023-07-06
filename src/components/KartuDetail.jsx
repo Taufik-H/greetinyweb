@@ -120,7 +120,7 @@ const KartuDetail = ({ kartuData }) => {
                   layout="position"
                   className="flex justify-between text-xs  mt-3"
                 >
-                  <p className="font-medium">love ❤ {kartu.username}</p>
+                  <p className="font-medium"> Dari {kartu.username} ❤️</p>
                   <motion.p layout="position" className="text-gray-300">
                     Tap untuk {isCardOpen ? 'sembunyikan' : 'munculkan'}{' '}
                   </motion.p>

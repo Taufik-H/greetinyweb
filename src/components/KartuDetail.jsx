@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { bg } from '../assets';
@@ -9,9 +9,8 @@ const KartuDetail = ({ kartuData }) => {
   const kartu = kartuData ? kartuData[key] : null;
   const [isOpen, setIsOpen] = useState(false);
   const [isCardOpen, setIsCardOpen] = useState(false);
-  const cardContentRef = useRef(null);
 
-  const handleCardClick = () => {
+  const handleCardCoverClick = () => {
     confetti({
       particleCount: 100,
       spread: 70,
@@ -24,20 +23,6 @@ const KartuDetail = ({ kartuData }) => {
     event.stopPropagation();
     setIsCardOpen(!isCardOpen);
   };
-
-  const handleClickOutsideCardContent = (event) => {
-    if (cardContentRef.current && !cardContentRef.current.contains(event.target)) {
-      setIsCardOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('click', handleClickOutsideCardContent);
-
-    return () => {
-      window.removeEventListener('click', handleClickOutsideCardContent);
-    };
-  }, []);
 
   const cardCoverColor =
     kartu && kartu.type === 'Ulang tahun'
@@ -57,7 +42,7 @@ const KartuDetail = ({ kartuData }) => {
   return (
     <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300">
       <motion.div
-        onClick={handleCardClick}
+        onClick={handleCardCoverClick}
         className={`w-10/12 md:w-3/12 h-[500px] card-surprise rounded-md shadow-md bg-white overflow-hidden z-50`}
         initial={{ x: 0, rotate: 0 }}
         animate={{ x: isOpen ? '-100%' : 0, rotate: isOpen ? 10 : 0 }}
@@ -86,24 +71,24 @@ const KartuDetail = ({ kartuData }) => {
           style={{
             backgroundImage: `url(${kartu.gambar})`,
             backgroundSize: 'cover',
-           backgroundPosition: 'center',
+            backgroundPosition: 'center',
           }}
           className={`absolute w-10/12 md:w-3/12 h-[500px] mx-auto overflow-hidden shadow-md bg-white rounded-lg border flex justify-end`}
         >
           <div
-            ref={cardContentRef}
-            onClick={handleCardContentClick}
+            onClick={handleCardCoverClick}
             className="absolute inset-0 w-full h-full z-30"
           >
             trigger open
           </div>
-          <div className="w-full  px-3">
+          <divclassName="w-full  px-3">
             {/* Card Content */}
             <motion.div className="relative flex flex-col justify-end h-full pb-3 z-40">
               <motion.div
+                onClick={handleCardContentClick}
                 transition={{ duration: 0.1, ease: 'easeIn' }}
                 layout
-                className="absolute w-full bg-white p-3 rounded-lg"
+                className="absolute w-full bg-white p-3 rounded-lg "
               >
                 <motion.div
                   layout="position"

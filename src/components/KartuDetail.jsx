@@ -93,6 +93,7 @@ const KartuDetail = ({ kartuData }) => {
                 className="absolute w-full bg-white p-3 rounded-lg "
               >
                 <motion.div
+                  transition={{ duration: 0.1, type: 'spring' }}
                   layout="position"
                   className="flex justify-between items-center"
                 >

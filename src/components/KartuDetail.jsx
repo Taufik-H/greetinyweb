@@ -86,7 +86,9 @@ const KartuDetail = ({ kartuData }) => {
             <motion.div className="relative flex flex-col justify-end h-full pb-3 z-40">
               <motion.div
                 onClick={handleCardContentClick}
-                transition={{ duration: 0.1, ease: 'easeIn' }}
+                transition={{ duration: 0.1, type: 'spring' }}
+
+
                 layout
                 className="absolute w-full bg-white p-3 rounded-lg "
               >

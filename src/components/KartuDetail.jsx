@@ -102,7 +102,7 @@ const KartuDetail = ({ kartuData }) => {
                     <h1>{kartu.subjectA ? `& ${kartu.subjectA}` : ''}</h1>
                   </div>
                   <div className="bg-teal-50 w-fit px-3 text-teal-500 border border-teal-400 animate-pulse rounded-full py-1">
-                    <p className="">{kartu.type}</p>
+                    <p className="">{kartu.hariRaya ? kartu.hariRaya : kartu.type}</p>
                   </div>
                 </motion.div>
                 {isCardOpen && (
@@ -110,6 +110,7 @@ const KartuDetail = ({ kartuData }) => {
                     <p className="uppercase font-medium text-sm">
                       {kartu.tanggal}
                     </p>
+                    
                     <motion.div className="w-full py-3">
                       <p>" {kartu.ucapan} "</p>
                     </motion.div>

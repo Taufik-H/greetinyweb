@@ -79,9 +79,9 @@ const KartuDetail = ({ kartuData }) => {
             onClick={handleCardCoverClick}
             className="absolute inset-0 w-full h-full z-30"
           >
-            trigger open
+          
           </div>
-          <divclassName="w-full  px-3">
+          <div className="w-full  px-3">
             {/* Card Content */}
             <motion.div className="relative flex flex-col justify-end h-full pb-3 z-40">
               <motion.div

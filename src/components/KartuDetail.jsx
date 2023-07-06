@@ -40,7 +40,7 @@ const KartuDetail = ({ kartuData }) => {
       : '';
 
   return (
-    <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300">
+    <div className="flex justify-center items-center h-screen relative bg-gradient-to-t from-blue-500 to-blue-300 overflow-hidden">
       <motion.div
         onClick={handleCardCoverClick}
         className={`w-10/12 md:w-3/12 h-[500px] card-surprise rounded-md shadow-md bg-white overflow-hidden z-50`}
